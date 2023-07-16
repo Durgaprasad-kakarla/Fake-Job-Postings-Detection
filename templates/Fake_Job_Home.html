@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Job Detection</title>
+
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
+
+<style>
+body{
+background-image:url("https://img.freepik.com/free-photo/fraud-word-magnifying-glass_23-2148783089.jpg?w=1060&t=st=1673416973~exp=1673417573~hmac=02dc82fca06811837064f1af8148f993313292e638f5a072891a20000a558297");
+background-repeat:no-repeat;
+background-size:cover;
+}
+ .footer-images img{
+        vertical-align:bottom;
+        border:0;
+        }
+</style>
+</head>
+<body class="bg-secondary">
+    <!-- As a heading -->
+        <div class="text-center">
+        <div class="btn btn-white">
+                <h1 class="text-black">Fake Job Posting Detection</h1>
+            </div>
+        </div>
+    <div class="container col-sm-9">
+            <form  action="\predict" method="post">
+                <div class="form-group ">
+                <label for="exampleFormControlTextarea1" ><h2>Enter Text</h2></label>
+                <textarea class="form-control " id="exampleFormControlTextarea1" name="text" value="text" rows="10"></textarea>
+              </div>
+                 <div class="text-center">
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                    </div>
+                <br><br><br><br>
+                <div class="text-center">
+                {% if prediction==[1] %}
+                    <div class="btn btn-danger ">Job is Fake.</div>
+
+                {% elif prediction==[0] %}
+                    <div class="btn btn-success ">Job is Real.</div>
+
+                {% endif %}
+                </div>
+        </form>
+    </div>
+
+</body>
